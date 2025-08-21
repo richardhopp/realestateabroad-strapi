@@ -50,7 +50,7 @@ export default ({ env }) => {
     },
   };
 
-  return {
+  const config = {
     connection: {
       client,
       ...connections[client],
@@ -59,5 +59,14 @@ export default ({ env }) => {
     settings: {
       forceMigration: true,
     },
+    debug: false,
   };
+
+  // Add table prefix for PostgreSQL to avoid conflicts with crypto Strapi
+  if (client === 'postgres') {
+    config.connection.connection.searchPath = ['public'];
+    config.tablePrefix = 're_';
+  }
+
+  return config;
 };
