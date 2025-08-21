@@ -9,7 +9,7 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "start": "bash start.sh",
+    "start": "node start.js",
     "start:strapi": "strapi start",
     "strapi": "strapi",
     "seed": "node seed-blog-data.js",
