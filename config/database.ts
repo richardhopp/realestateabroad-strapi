@@ -1,7 +1,8 @@
 import path from 'path';
 
 export default ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  // Force SQLite for now to get deployment working
+  const client = 'sqlite';
 
   const connections = {
     mysql: {
